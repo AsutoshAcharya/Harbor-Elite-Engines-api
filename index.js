@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import AllBikesRoute from "./routes/AllBikesRoute.js";
+import AllCarsRoute from "./routes/AllCarRoute.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/allbikes", AllBikesRoute);
+app.use("/api/allcars", AllCarsRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
