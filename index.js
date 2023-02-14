@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import AllBikesRoute from "./routes/AllBikesRoute.js";
 import AllCarsRoute from "./routes/AllCarRoute.js";
+import AllEvRoute from "./routes/AllEvRoute.js";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(express.json());
 
 app.use("/api/allbikes", AllBikesRoute);
 app.use("/api/allcars", AllCarsRoute);
+app.use("/api/allevs", AllEvRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
