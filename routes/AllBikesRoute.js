@@ -9,6 +9,6 @@ const router = express.Router();
 //add brand of bike
 router.post("/", addBikeBrand);
 //get bike brands
-router.get("/", getBikeBrand);
+router.get("/", getBikeBrand); 
 
 export default router;
