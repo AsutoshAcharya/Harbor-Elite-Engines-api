@@ -1,4 +1,5 @@
 import AllBikes from "../models/allbikes.js";
+import allBikeTypes from "../models/allBikeTypes.js";
 //add bike brand
 export const addBikeBrand = async (req, res, next) => {
   const bikeBrand = new AllBikes(req.body);
@@ -17,6 +18,29 @@ export const getBikeBrand = async (req, res, next) => {
   try {
     const findBikeBrands = await AllBikes.find();
     res.status(200).json(findBikeBrands);
+  } catch (err) {
+    next(err);
+  }
+};
+
+//add a bike type
+export const addBike = async (req, res, next) => {
+  const addBikeType = new allBikeTypes(req.body);
+
+  try {
+    const addNewBike = await addBikeType.save();
+    res.status(200).json(addNewBike);
+  } catch (err) {
+    next(err);
+  }
+};
+
+//get allbike types
+
+export const getAllBikeTypes = async (req, res, next) => {
+  try {
+    const getAllBikeTypes = await allBikeTypes.find();
+    res.status(200).json(getAllBikeTypes);
   } catch (err) {
     next(err);
   }
