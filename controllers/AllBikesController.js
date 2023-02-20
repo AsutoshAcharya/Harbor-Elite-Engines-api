@@ -45,3 +45,15 @@ export const getAllBikeTypes = async (req, res, next) => {
     next(err);
   }
 };
+//get allbikes of specific type
+export const getAllBikesOfSpecificBrand = async (req, res, next) => {
+  const searchBike = req.params.find;
+  console.log(searchBike);
+
+  try {
+    const getAllBikesOfBrand = await allBikeTypes.find({ brand: searchBike });
+    res.status(200).json(getAllBikesOfBrand);
+  } catch (err) {
+    next(err);
+  }
+};

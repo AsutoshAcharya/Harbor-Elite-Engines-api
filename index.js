@@ -1,11 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+
 import cors from "cors";
 import AllBikesRoute from "./routes/AllBikesRoute.js";
 import AllCarsRoute from "./routes/AllCarRoute.js";
 import AllEvRoute from "./routes/AllEvRoute.js";
-
+mongoose.set("strictQuery", true);
 const app = express();
 
 dotenv.config();
