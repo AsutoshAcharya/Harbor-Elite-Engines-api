@@ -6,6 +6,7 @@ import cors from "cors";
 import AllBikesRoute from "./routes/AllBikesRoute.js";
 import AllCarsRoute from "./routes/AllCarRoute.js";
 import AllEvRoute from "./routes/AllEvRoute.js";
+import authRoute from "./routes/auth.js";
 mongoose.set("strictQuery", true);
 const app = express();
 
@@ -28,6 +29,7 @@ mongoose.connection.on("disconnected", () => {
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/auth", authRoute);
 app.use("/api/allbikes", AllBikesRoute);
 app.use("/api/allcars", AllCarsRoute);
 app.use("/api/allevs", AllEvRoute);
